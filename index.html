@@ -187,10 +187,20 @@
       <!-- Solo visible al imprimir -->
       <div class="print-header">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Sedapall.jpg" alt="Sedapal" />
-        <div>
+        <div class="print-header-middle">
           <div class="print-badge">Agua Potable y Alcantarillado</div>
           <div class="print-title">Reparto de Recibo</div>
           <div class="print-sub">Nº Suministro <strong>6456471-9</strong></div>
+        </div>
+        <div class="print-header-fechas">
+          <div class="print-fecha-item">
+            <span class="print-fecha-label">Mes facturado</span>
+            <span class="print-fecha-valor" id="print_periodo">—</span>
+          </div>
+          <div class="print-fecha-item">
+            <span class="print-fecha-label">Fecha de emisión</span>
+            <span class="print-fecha-valor" id="print_emision">—</span>
+          </div>
         </div>
       </div>
 
@@ -290,6 +300,7 @@
         Los conceptos de <em>Volumen de Agua Potable, Servicio de Alcantarillado e IGV sobre consumo</em> se reparten proporcionalmente según los m³ medidos en cada departamento.
         Los conceptos de <em>Cargo Fijo, Mora e IGV sobre cargos fijos</em> se dividen al 50/50 por no depender del consumo individual.
         Los <em>Redondeos de mes anterior y actual</em> también se dividen al 50/50.
+        Los totales finales se redondean a S/ 0,10, la menor denominación de pago.
       </p>
 
     </section>

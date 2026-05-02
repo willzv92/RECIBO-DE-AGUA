@@ -354,6 +354,10 @@ function calcular() {
   document.getElementById('chip_prop').textContent  = 'S/ ' + formatValue(totalProp);
   document.getElementById('chip_fijo').textContent  = 'S/ ' + formatValue((totalFijo + totalEsp) / 2);
 
+  // Datos del print-header
+  document.getElementById('print_periodo').textContent = periodo || '—';
+  document.getElementById('print_emision').textContent = getFechaEmision();
+
   // Barra
   document.getElementById('barra_a').style.width = (porcA * 100).toFixed(2) + '%';
 
@@ -373,6 +377,17 @@ function calcular() {
  */
 function redondear10(valor) {
   return Math.round(valor * 10) / 10;
+}
+
+/**
+ * Devuelve la fecha actual formateada como "dd/mm/aaaa".
+ */
+function getFechaEmision() {
+  const hoy = new Date();
+  const d = String(hoy.getDate()).padStart(2, '0');
+  const m = String(hoy.getMonth() + 1).padStart(2, '0');
+  const a = hoy.getFullYear();
+  return `${d}/${m}/${a}`;
 }
 
 function fmtPorc(valor) {
