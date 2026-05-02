@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   poblarAnios();
   inicializarInputsNumericos();
   inicializarSubtotalesLive();
+  // Prellenar fecha de emisión en el print-header desde el inicio
+  document.getElementById('print_emision').textContent = getFechaEmision();
 });
 
 // =============================================
@@ -24,6 +26,13 @@ function poblarAnios() {
     if (y === anioActual) opt.selected = true;
     select.appendChild(opt);
   }
+  // Actualizar print_periodo al cambiar selects
+  ['mes', 'anio'].forEach(id => {
+    document.getElementById(id).addEventListener('change', () => {
+      const p = getPeriodo();
+      document.getElementById('print_periodo').textContent = p || '—';
+    });
+  });
 }
 
 function getPeriodo() {

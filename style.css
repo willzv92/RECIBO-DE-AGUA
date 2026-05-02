@@ -554,7 +554,13 @@ td {
 /* =============================================
    PRINT
    ============================================= */
-.print-header { display: none; }
+/* print-header: siempre en DOM pero invisible en pantalla */
+.print-header {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  visibility: hidden;
+}
 
 @media print {
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -570,6 +576,8 @@ td {
   .contenedor { padding: 20px 28px; max-width: 100%; }
 
   .print-header {
+    position: static;
+    visibility: visible;
     display: flex !important;
     align-items: center;
     gap: 20px;
@@ -585,30 +593,32 @@ td {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 6px;
-    min-width: 160px;
+    gap: 8px;
+    min-width: 150px;
   }
 
   .print-fecha-item {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 1px;
+    gap: 2px;
   }
 
   .print-fecha-label {
     font-family: var(--font-mono);
-    font-size: 8px;
-    letter-spacing: 0.1em;
+    font-size: 7.5px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--gris-texto);
+    font-weight: 400;
   }
 
   .print-fecha-valor {
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
-    color: var(--azul);
+    color: var(--negro);
+    letter-spacing: 0.04em;
   }
   .print-badge {
     display: inline-block;
